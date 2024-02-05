@@ -7,23 +7,55 @@
 // page 7 ecran de paramètres
 import SwiftUI
 
-struct SettingsScreen: View {
-    var body: some View {
-        ZStack{
-            Color("BackgroundColor")
-                .ignoresSafeArea()
-            VStack{
-                Text("parametre utilisateur")
-                    .font(.title)
-                    .foregroundStyle(Color("TitleColor"))
-                Text("parametres généraux et changement du compte")
-            }
-        }.padding()
-        .foregroundStyle(Color("FontColor"))
-        
-    }
+struct Setting : Identifiable{
+    let id = UUID()
+    let nom: String
 }
 
+var settings = [
+    Setting(nom: "Compte"),
+    Setting(nom: "Sécurité"),
+    Setting(nom: "Connexion"),
+    Setting(nom: "QR Code")
+    ]
+
+var settings2 = [
+    Setting(nom: "Abonnement"),
+    Setting(nom: "Cadeau"),
+    Setting(nom: "Annulation")
+
+]
+
+struct SettingsScreen: View {
+
+    var body: some View {
+        VStack{
+
+            Text("Settings")
+            Spacer()
+            HStack{
+                Image(systemName: "magnifyingglass")
+                Button("Search"){}}
+            Spacer()
+            Spacer()
+            Text("Paramètre du compte")
+            List(settings) {
+                element in
+                HStack{
+                    Text(element.nom)
+                    Spacer()
+                    Image(systemName: "greaterthan")
+                }}
+            Text("Paramètre abonnement")
+                       List(settings2) { element in
+                           HStack{
+                               Text(element.nom)
+                               Spacer()
+                               Image(systemName: "greaterthan")
+                           }
+                       }
+            }
+        }}
 #Preview {
     SettingsScreen()
 }

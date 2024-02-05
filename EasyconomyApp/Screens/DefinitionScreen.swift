@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct DefinitionScreen: View {
-    var selectedDefinition : Definition
+    @ObservedObject var selectedDefinition : Definition
     var body: some View {
         ZStack{
             Color("BackgroundColor")
                 .ignoresSafeArea()
             VStack{
-                Text(selectedDefinition.name)
+                HStack{
+                    Text(selectedDefinition.name)
+                    Spacer()
+                    Button {
+                        selectedDefinition.favorite.toggle()}
+                    label:{
+                        Image(systemName: selectedDefinition.favorite ? "star.fill" : "star") }
+                    }
                     .font(.title)
                     .foregroundStyle(Color("TitleColor"))
                 Text(selectedDefinition.content)

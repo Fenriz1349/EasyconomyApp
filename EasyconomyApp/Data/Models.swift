@@ -6,16 +6,15 @@
 //
 import SwiftUI
 import Foundation
-
 // enum des differents rangs de joueur
 enum Rank : String,CaseIterable,Identifiable{
     var id: String { UUID().uuidString }
-    case student = " 1: étudiant"
-    case youngInvestor = "2: Jeune investisseur"
-    case investor = "3: Investisseur"
-    case owner = "4: Propriétaire"
-    case CEO = "5: Chef d'entreprise"
-    case annuitant = "6: Rentier"
+    case student = " 1 : étudiant"
+    case youngInvestor = "2 : Jeune investisseur"
+    case investor = "3 : Investisseur"
+    case owner = "4 : Propriétaire"
+    case CEO = "5 : Chef d'entreprise"
+    case annuitant = "6 : Rentier"
 }
 
 //enum des differents catégories générales dans l'économie ( personnelle, investissement, banque, mondiale)
@@ -42,48 +41,17 @@ struct Adress : Identifiable {
     var country : String
 }
 
-// class d'un joueur
-// id : id unique du joueur
-// pseudo : pseudo du joueur
-// avatar : nom de l'image de l'avatar du joueur dans les assets
-// score : score du joueur
-// rank : rang du joueur
-// friends : liste des amis du joueur
-// mail : mail de l'utilisateur
-// password : mot de passe de l'utilisateur
-// adress : adresse de l'utilisateur
-// BDay : date de naissance de l'utilsateur
-class User : Identifiable, ObservableObject {
-    let id = UUID()
-    var pseudo : String
-    var avatar : String
-    @Published var score : Int
-    @Published var rank : Rank
-    var mail : String
-    var password : String
-    var adress : Adress
-    
-    init(pseudo: String, avatar: String = "Guts", score: Int = 0, rank: Rank, mail: String, password: String, adress: Adress) {
-        self.pseudo = pseudo
-        self.avatar = avatar
-        self.score = score
-        self.rank = rank
-        self.mail = mail
-        self.password = password
-        self.adress = adress
-    }
-}
 //struct d'un challenger pour afficher le Leaderboard
 // pseudo : pseudo du challenger
 // score : score du joueur
 // rank : rang du joueur
 // friends : Boolean pour indiquer si le challenger est sur la liste d'ami ou pas
-class Challenger : Identifiable{
+class Challenger : Identifiable, ObservableObject{
     let id = UUID()
     let pseudo : String
     let avatar : String
-    var score : Int
-    var rank : Rank
+    @Published var score : Int
+    @Published var rank : Rank
     var friend : Bool
     var adress : Adress
     
@@ -96,6 +64,24 @@ class Challenger : Identifiable{
         self.adress = adress
     }
 }
+// class d'un joueur qui herite de la class challenger
+// friends : liste des amis du joueur
+// mail : mail de l'utilisateur
+// password : mot de passe de l'utilisateur
+
+class User : Challenger {
+    var mail : String
+    var password : String
+    var friendsList : [String]
+    
+    init(pseudo: String, avatar: String, score: Int, rank: Rank, friend: Bool = false, adress : Adress,mail: String, password: String, friendsList: [String] = []) {
+        self.mail = mail
+        self.password = password
+        self.friendsList = friendsList
+        super.init(pseudo: pseudo, avatar: avatar, score: score, rank: rank, adress: adress)
+    }
+}
+
 // struct d'un Quizz
 // id : identrifiant unique d'un quizz
 // name : le nom du Quizz
@@ -193,7 +179,7 @@ struct Lesson : Identifiable {
     let id = UUID()
     let name : String
     let category : Category
-    let lessonList : [String]
+    let content : String
     let difficulty : Rank
     let quizz : Quizz
 }
@@ -202,22 +188,12 @@ struct Lesson : Identifiable {
 //fonction pour recuperer la liste des definitions en favoris
 func selectedFavorites() ->[Definition]?{
     var listFavorites : [Definition] = []
-    
     for lexique in lexiques {
         for definition in lexique.definitions! {
             definition.favorite ? listFavorites.append(definition) : nil
         }
     }
     return listFavorites
-}
-//fonction pour retourner un dictionnaire de toutes les definitions en exemplaire unique
-func generateDictionnaryDefinition ()->[String:String]{
-    var dictionnary = [String: String]()
-    let listAllDefinition : [Definition] = listGlobal+listInvest+listSupplyAndDemand
-    listAllDefinition.forEach { property in
-        dictionnary[property.name] = property.content
-    }
-    return dictionnary
 }
 
 //fonction pour generer la liste des definitions de lma categorie selectionné
@@ -228,5 +204,28 @@ func generateListCategory(selectedCategory : Category) ->[Definition]{
     case .supplyAndDemand : return listSupplyAndDemand
     case .all : return listGlobal+listInvest+listSupplyAndDemand
     default : return []
+    }
+}
+
+// struct pour animer le bouton de validation
+struct GrowingButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(Color("ButtonBckColor"))
+            .foregroundStyle(Color("BckgroundColor"))
+            .clipShape(Capsule())
+            .scaleEffect(configuration.isPressed ? 1.5 : 1)
+            .animation(.easeOut(duration: 0.3), value: configuration.isPressed)
+    }
+}
+//struct pour ajouter un modifier qui rajoute un overlay gris autour d'un element
+struct OverlayElement: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 25)
+                    .stroke(Color("TitleColor"), lineWidth: 2))
     }
 }

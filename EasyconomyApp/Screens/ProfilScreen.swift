@@ -14,18 +14,31 @@ struct ProfilScreen: View {
             Color("BackgroundColor")
                 .ignoresSafeArea()
             VStack{
-                Image(user.avatar)
-                    .resizable()
-                    .frame(width:200,height: 200)
-                Text(user.pseudo)
-                    .font(.title)
-                    .foregroundStyle(Color("YellowCustom"))
-                Text("rang : \(user.rank.rawValue)")
-                Text("Points : \(user.score)")
-                Text("\(user.adress.city) - \(user.adress.country)")
-                
-                    NavigationLink(destination: CurrentLesson(), label:{Text("Leçon en cours")})
+                VStack{
+                    Text(user.pseudo)
+                        .font(.title)
+                        .foregroundStyle(Color("YellowCustom"))
+                    Text("rang \(user.rank.rawValue)")
+                    Text("Points : \(user.score)")
+                    Text("\(user.adress.city), \(user.adress.country)")
+                    Image(user.avatar)
+                        .resizable()
+                        .frame(width:200,height: 200)
+                        .cornerRadius(30)
+                    Spacer()
+                }.font(.system(size: 20))
+                VStack(spacing: 60){
+                    NavigationLink(destination: ExtListFavorites(), label:{Text("Favori")})
+                        .frame(width:200,height: 20)
+                        .modifier(OverlayElement())
+                    NavigationLink(destination: CurrentLesson(), label:{Text("Reprendre le cours")})
+                        .frame(width:200,height: 20)
+                        .modifier(OverlayElement())
+                    NavigationLink(destination: QuizzScreen(), label: {Text("Reprendre le quizz")})
+                        .frame(width:200,height: 20)
+                        .modifier(OverlayElement())
                 }
+            }
             }
         }.padding()
             .foregroundStyle(Color("FontColor"))

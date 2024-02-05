@@ -13,15 +13,46 @@ struct ExtQuestion : View {
     let question : Question
     @Binding var QReturn :Int
     var body: some View {
-        Picker("\(question.number) : \(question.topic)", selection: $QReturn) {
+        Picker("\(question.number)/5 : \(question.topic)", selection: $QReturn) {
             Text(question.proposition1).tag(1)
             Text(question.proposition2).tag(2)
             Text(question.proposition3).tag(3)
             Text(question.proposition4).tag(4)
         }.pickerStyle(.inline)
+            .background(Color("ElementBckColor"))
+            .padding(5)
+            .font(.system(size: 30))
     }
 }
 
+//extractview d'un paragrahpe d'une leçon
+struct ExtLesson : View {
+    let lessonParagraphe : Lesson
+    var body: some View {
+        VStack{
+            HStack{
+                Spacer()
+                Text(lessonParagraphe.category.rawValue)
+                Text(lessonParagraphe.difficulty.rawValue)
+            }
+            .font(.system(size: 20))
+            .padding(20)
+            Text(lessonParagraphe.name)
+                .bold()
+                .font(.system(size: 30))
+                .padding(20)
+                .foregroundStyle(Color("YellowCustom"))
+            ScrollView{
+                Text(lessonParagraphe.content)
+                    .padding(15)
+            }
+            Spacer()
+        }
+            .background(Color("ElementBckColor"))
+            .padding(5)
+            .font(.system(size: 25))
+    }
+}
 //extractView d'une cellule du leaderboard
 struct ExtChallenger : View {
     let currentChallenger : Challenger

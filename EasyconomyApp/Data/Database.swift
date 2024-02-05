@@ -12,7 +12,7 @@ var adresses : [Adress] = [
 ]
 //variable qui contient les données de l'utilisateur
 var user : User =
-    User(pseudo: "Fen", score: 666, rank:.student, mail: "test@gmail.fr", password: "1234", adress: adresses[0])
+User(pseudo: "Fen", avatar : "Guts",score: 666, rank:.student, adress: adresses[0], mail: "test@gmail.fr", password: "1234")
 
 //liste de toutes questions
 var questionsQuizz1 : [Question] = [
@@ -98,4 +98,11 @@ let lexiques : [Lexique] = [
     Lexique(name: Category.supplyAndDemand.rawValue, definitions: listSupplyAndDemand),
     Lexique(name: Category.invest.rawValue, definitions: listInvest),
     Lexique(name: Category.global.rawValue, definitions: listGlobal)
+]
+//liste des écrans pour la leçon en cours
+let currentLessonParagraphs : [Lesson] = [
+    Lesson(name: "Les Politiques Gouvernementales et Leur Impact Économique" , category: .global, content :"Les politiques gouvernementales, qu'elles touchent les impôts, l'argent ou les règles, sont comme les chefs d'orchestre de l'économie. Les décisions sur les taxes influent sur notre capacité à dépenser, économiser et investir. Les choix en matière d'argent, comme les taux d'intérêt fixés par les banques centrales, affectent l'emprunt, l'investissement et l'inflation. Les règles édictées par les autorités politiques sont également importantes, car des réglementations strictes peuvent freiner l'innovation, tandis que des politiques plus cool peuvent stimuler la croissance économique. En résumé, ce que décide le gouvernement a un impact énorme sur l'économie, que ce soit pour la faire prospérer ou stagner.", difficulty: .youngInvestor, quizz: quizzs[0]),
+    Lesson(name: "Commerce International et Relations Diplomatiques", category: .global, content: "Les relations entre pays et les accords commerciaux sont super importants pour lier l'économie et la politique. Les décisions politiques sur le commerce, comme les taxes et les obstacles commerciaux, influent directement sur le mouvement des choses entre les nations. Les accords entre deux pays ou plusieurs ont un impact sur la compétitivité des entreprises à l'échelle mondiale. Quand il y a des tensions politiques, ça peut se transformer en guerre commerciale et ça peut vraiment secouer l'économie mondiale. Donc, les choix politiques dans les relations internationales ont des effets économiques sérieux qui forment notre tableau économique global.", difficulty: .youngInvestor, quizz: quizzs[0]),
+Lesson(name: "Les Défis Économiques comme Catalyseurs Politiques ", category: .global, content: "Les problèmes économiques comme le chômage, l'inégalité et la pauvreté poussent les gouvernements à prendre des décisions importantes. Ils doivent agir pour maintenir la stabilité sociale et garantir le bien-être de la population. Les politiques sociales, la formation professionnelle et les réformes économiques sont des réponses directes à ces défis. En plus, quand il y a des crises économiques, ça peut secouer les structures politiques en place et entraîner des changements dans les priorités et orientations du gouvernement. En résumé, les hauts et bas économiques peuvent vraiment changer le visage politique d'un pays.", difficulty: .youngInvestor, quizz: quizzs[0]),
+Lesson(name: "Conclusion", category: .global, content: "En résumé, l'économie et la politique sont comme des partenaires inséparables. Les choix dans un domaine ont des effets profonds dans l'autre. C'est crucial de comprendre cette relation pour relever les défis d'aujourd'hui et créer des politiques qui boostent le bien-être économique et social. La collaboration entre économie et politique façonne le destin des nations, créant une toile complexe où chaque aspect contribue à la réalité de la société.", difficulty: .youngInvestor, quizz: quizzs[0])
 ]

@@ -11,26 +11,42 @@ struct QuizzResultScreen: View {
     @Environment(\.presentationMode) var presentationMode
     @Binding var nbGoodAnswers : Int
     @Binding var nbPointEarned : Int
+    @Binding var currentQuestion : Int
     var body: some View {
         VStack {
             Text(nbGoodAnswers == 0 ? "t'es mauvais Jack !" : "Vous avez \(nbGoodAnswers)/\(questionsQuizz1.count) bonnes reponses !")
+                .padding(5)
+                .bold()
             if quizzs[0].isCompleted{
                 Text("Quizz deja Completé, vous ne gagnez pas de points")
             }else{
-                Text("vous avez marqué \(quizzs[0].getMaxScore()) points sur \(quizzs[0].getMaxScore())")
+                Text("Vous avez marqué ")
+                Text("\(nbPointEarned) points sur \(quizzs[0].getMaxScore())")
             }
-            Text("Vous avez \(user.score+quizzs[0].getMaxScore()) points")
+            Text("Vous avez \(user.score+nbPointEarned) points")
                 .padding(.bottom,20)
-            Button("retour") {
+            Button() {
                 quizzs[0].isCompleted = true
-                user.score+=nbGoodAnswers*10
                 nbGoodAnswers = 0
+                nbPointEarned = 0
+                currentQuestion = 0
+                user.score = 666
                 presentationMode.wrappedValue.dismiss()
-            }
-        }
+            }label:{HStack{
+                Image(systemName: "chevron.backward")
+                Text("Retour")
+                    .font(.system(size: 25))
+            } }
+            .buttonStyle(GrowingButton())
+        }.padding(50)
+        .font(.system(size: 30))
+        .background(Color("ElementBckColor"))
+        .clipShape(RoundedRectangle(cornerRadius: 30))
+        .modifier(OverlayElement())
+            
     }
 }
 
 #Preview {
-    QuizzResultScreen(nbGoodAnswers: .constant(0), nbPointEarned: .constant(0))
+    QuizzResultScreen(nbGoodAnswers: .constant(0), nbPointEarned: .constant(0),currentQuestion: .constant(0))
 }
