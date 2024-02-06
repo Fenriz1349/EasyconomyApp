@@ -10,6 +10,18 @@ import SwiftUI
 struct LexiqueScreen: View {
     @State var lexiqueType : Int = 1
     @State var selectedCategory : String = Category.bank.rawValue
+    @State private var searchText = ""
+    @State var selectedList = sortedListAllDefinitions
+    
+    func searchResults() {
+        if !searchText.isEmpty {
+            lexiqueType = 2
+            selectedList = selectedList.filter{ $0.name.lowercased().contains(searchText.lowercased()) }
+        }else{
+            selectedList = sortedListAllDefinitions
+        }
+    }
+    
     var body: some View {
         ZStack{
             Color("BackgroundColor")
@@ -18,25 +30,30 @@ struct LexiqueScreen: View {
                 VStack{
                     Text("Lexique")
                         .font(.title)
-                        .foregroundStyle(Color("TitleColor"))
+                        .foregroundStyle(Color("YellowCustom"))
                         .padding(.bottom, 30)
                     Picker("friend", selection: $lexiqueType) {
                         Text("catégories").tag(1)
                         Text("A..Z").tag(2)
                         Text("favoris").tag(3)
                     } .pickerStyle(.segmented)
+                        .padding(.bottom, 30)
                     ScrollView{
                         switch lexiqueType {
-                            case 1 : ExtListCategory()
-                            case 2 : ExtListAlphabeticOrder()
+                            case 2 : ExtListAlphabeticOrder(selectedList: selectedList)
                             case 3 : ExtListFavorites()
-                            default : Text("erreur")
+                            default : ExtListCategory()
                         }
                     }
-                    
                 }
+                .toolbar {
+                    ExtSettings()
+                    }
             }.padding()
                     .foregroundStyle(Color("FontColor"))
+            }.searchable(text: $searchText)
+            .onChange(of: searchText){
+                searchResults()
             }
         }
     }

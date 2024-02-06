@@ -13,21 +13,26 @@ struct DefinitionScreen: View {
         ZStack{
             Color("BackgroundColor")
                 .ignoresSafeArea()
-            VStack{
-                HStack{
-                    Text(selectedDefinition.name)
-                    Spacer()
-                    Button {
-                        selectedDefinition.favorite.toggle()}
+            NavigationStack{
+                VStack{
+                    HStack{
+                        Text(selectedDefinition.name)
+                        Spacer()
+                        Button {
+                            selectedDefinition.favorite.toggle()}
                     label:{
                         Image(systemName: selectedDefinition.favorite ? "star.fill" : "star") }
                     }
-                .font(.system(size: 40))
+                    .font(.system(size: 40))
                     .foregroundStyle(Color("TitleColor"))
-                Text(selectedDefinition.content)
-                    .frame()
-                    .font(.system(size: 30))
-                    .background(Color("ElementBckColor"))
+                    Text(selectedDefinition.content)
+                        .frame()
+                        .font(.system(size: 30))
+                        .background(Color("ElementBckColor"))
+                }
+                .toolbar {
+                    ExtSettings()
+                }
             }
         }.padding()
         .foregroundStyle(Color("FontColor"))

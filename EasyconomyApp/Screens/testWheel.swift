@@ -15,25 +15,20 @@ struct testWheel: View {
             Color("BackgroundColor")
                 .ignoresSafeArea()
             VStack{
-                Text("Leaderbord")
-                    .padding(.bottom, 30)
-                Picker("friend", selection: $selectedFriend) {
-                    Text("Monde").tag(false)
-                    Text("Amis").tag(true)
-                } .pickerStyle(.segmented)
-                    .padding(.bottom, 30)
-                ScrollView(.horizontal){
-                    HStack {
-                        ForEach(challengers.filter{$0.friend == selectedFriend}) {element in
-                            ExtChallengerHorizontal(currentChallenger: element)
-                        }
-                    }
+                ZStack{
+                    Image("fond")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 200,height: 200)
+                    Image("test")
+                        .resizable()
+                        .frame(width: 100,height: 150)
+                }
                 }
             }
-        }.padding()
-            .foregroundStyle(Color("FontColor"))
+        }
     }
-    }
+
 
 #Preview {
     testWheel()

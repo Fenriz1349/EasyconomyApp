@@ -38,6 +38,9 @@ struct CurrentLesson: View {
                             .buttonStyle(GrowingButton())
                     }
                 }
+                .toolbar {
+                    ExtSettings()
+                }
             }
         }
     }

@@ -12,11 +12,19 @@ struct LessonScreen: View {
         ZStack{
             Color("BackgroundColor")
                 .ignoresSafeArea()
-            VStack{
-                Text("liste des cours")
-                    .font(.title)
-                    .foregroundStyle(Color("TitleColor"))
-                Text("Liste des cours réussi et à faire")
+            NavigationStack{
+                VStack{
+                    Text("Liste des cours")
+                        .font(.system(size: 35))
+                        .bold()
+                        .foregroundStyle(Color("YellowCustom"))
+                    ForEach(listLessonName, id: \.self) { element in
+                        ExtLessonNameAndProgress(lessonName: element)
+                    }
+                }
+                .toolbar {
+                    ExtSettings()
+                }
             }
         }.padding()
         .foregroundStyle(Color("FontColor"))

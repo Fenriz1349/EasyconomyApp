@@ -10,26 +10,33 @@ import SwiftUI
 struct LeaderboardScreen: View {
     @State private var selectedFriend = false
     var body: some View {
-        ZStack{
-            Color("BackgroundColor")
-                .ignoresSafeArea()
-            VStack{
-                Text("Leaderbord")
-                    .padding(.bottom, 30)
-                Picker("friend", selection: $selectedFriend) {
-                    Text("Monde").tag(false)
-                    Text("Amis").tag(true)
-                } .pickerStyle(.segmented)
-                    .padding(.bottom, 30)
-                ScrollView{
-                    ForEach(challengers.filter{$0.friend == selectedFriend}.indices, id:\.self) {indice in
-                        ExtChallenger(currentChallenger: challengers.filter{$0.friend == selectedFriend}[indice],index: indice)
+        NavigationStack{
+            ZStack{
+                Color("BackgroundColor")
+                    .ignoresSafeArea()
+                VStack{
+                    Text("Leaderbord")
+                        .font(.system(size: 35))
+                        .bold()
+                        .padding(.bottom, 30)
+                    Picker("friend", selection: $selectedFriend) {
+                        Text("Monde").tag(false)
+                        Text("Amis").tag(true)
+                    }.pickerStyle(.segmented)
+                        .padding(.bottom, 30)
+                        
+                    ScrollView{
+                        ForEach(challengers.filter{$0.friend == selectedFriend}.indices, id:\.self) {indice in
+                            ExtChallenger(currentChallenger: challengers.filter{$0.friend == selectedFriend}[indice],index: indice)
+                        }
                     }
                 }
-            }
-            
-        }.padding()
-            .foregroundStyle(Color("FontColor"))
+                .toolbar {
+                    ExtSettings()
+                    }
+            }.padding()
+                .foregroundStyle(Color("FontColor"))
+        }
     }
 }
 #Preview {

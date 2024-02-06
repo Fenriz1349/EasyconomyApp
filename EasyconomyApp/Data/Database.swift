@@ -16,11 +16,11 @@ User(pseudo: "Fen", avatar : "Guts",score: 666, rank:.student, adress: adresses[
 
 //liste de toutes questions
 var questionsQuizz1 : [Question] = [
-    Question(topic: "Quelle est la question ?", number: 1, points: 10, proposition1: "test 1",  proposition2: "test 2 vrai", proposition3: "test 3", proposition4: "test 4",validProposition: 2),
-    Question(topic: "Encore du Travail ?",number: 2, points: 10, proposition1: "oui mon seigneur", proposition2: "travail", proposition3: "travail", proposition4: "travail", validProposition: 1),
-    Question(topic: "Encore du Travail ?",number: 3, points: 10, proposition1: "oui mon seigneur", proposition2: "travail", proposition3: "travail", proposition4: "travail", validProposition: 1),
-    Question(topic: "Encore du Travail ?",number: 4, points: 10, proposition1: "oui mon seigneur", proposition2: "travail", proposition3: "travail", proposition4: "travail", validProposition: 1),
-    Question(topic: "Encore du Travail ?",number: 5, points: 10, proposition1: "oui mon seigneur", proposition2: "travail", proposition3: "travail", proposition4: "travail", validProposition: 1)
+    Question(topic: "Qu'est ce qui peut influencer l'économie d'un pays ?", number: 1, points: 10, proposition1: "Ayoub",  proposition2: "les relations entre pays", proposition3: "rien peut le changer", proposition4: "l'écologie",validProposition: 2),
+    Question(topic: "quelles réponses fait part des problèmes économique ?",number: 2, points: 10, proposition1: "le chômage", proposition2: "Goku", proposition3: "les décisions du gouvernement", proposition4: "aucune des 3", validProposition: 1),
+    Question(topic: "Peut on séparer la politique de l'économie ?",number: 3, points: 10, proposition1: "non", proposition2: "oui mais c'est difficile", proposition3: "oui", proposition4: "Ryan peut le faire", validProposition: 1),
+    Question(topic: "laquel des ces fait est incorrecte  ?",number: 4, points: 10, proposition1: "le chômage est un problème économique", proposition2: "tout les décision du gouvernement influence l'économie d'un pays", proposition3: "l'économie et la politique peuvent être séparé", proposition4: "les taxes nous influencent", validProposition: 2),
+    Question(topic: "Quelle est la conséquence des tensions politiques entre pays ?",number: 5, points: 10, proposition1: "Elle n'a pas des conséquence", proposition2: "une conséquence écologique", proposition3: "Elle peut crée des guerre commerciale", proposition4: "je ne sais pas laisse moi tranquille", validProposition: 3)
 ]
 //liste des Quizz
 var quizzs : [Quizz] = [
@@ -90,6 +90,39 @@ let listGlobal : [Definition] = [
        Definition(name: "PIB (Produit Intérieur Brut)", content: "La somme de tout ce que nous produisons et vendons dans notre pays pendant un certain temps, comme une année. C'est un moyen de mesurer la taille de notre économie et de voir comment elle se porte"),
        Definition(name: "Profit", content: "L'argent que reste après avoir soustrait les coûts et les dépenses des revenus. C'est le gain financier positif résultant d'une activité, souvent associé à la vente de biens ou de services. Le profit est essentiel pour mesurer la réussite financière d'une entreprise ou d'une activité commerciale. Il peut être réinvesti dans l'entreprise, distribué aux actionnaires, ou utilisé à des fins diverses selon les objectifs financiers. En termes simples, le profit est ce qui reste lorsque tous les frais ont été payés.")
 ]
+//liste des defintion de la catégories french (fançaise)
+let listFrench : [Definition] = [
+Definition(name: "Élasticité-prix de l'offre", content: "Mesure de la sensibilité de l'offre d'un bien ou d'un service par rapport à une variation de son prix."),
+Definition(name: "Marché financier", content: "Lieu où les actifs financiers tels que les actions, les obligations et les devises sont échangés."),
+Definition(name: "Fiscalité", content: "Le système de prélèvement des impôts par un gouvernement pour financer ses dépenses."),
+    Definition(name: "Dette souveraine", content: "La dette contractée par un gouvernement national."),
+    Definition(name: "Déficit budgétaire", content: "La différence entre les recettes et les dépenses d'un gouvernement sur une période donnée."),
+    Definition(name: "Économie émergente", content: "Un pays dont l'économie se développe rapidement et devient de plus en plus importante sur la scène mondiale."),
+    Definition(name: "Développement économique", content: "L'amélioration du bien-être matériel d'une société."),
+    Definition(name: "Politique fiscale", content: "L'utilisation des impôts et des dépenses gouvernementales pour influencer l'économie."),
+    Definition(name: "Monnaie fiduciaire", content: "La monnaie qui n'a pas de valeur intrinsèque et dont la valeur est soutenue par la confiance des utilisateurs."),
+    Definition(name: "Revenu national", content: "Le total des revenus gagnés par les résidents d'un pays, y compris les salaires, les intérêts et les bénéfices."),
+    Definition(name: "Pouvoir d'achat", content: "La capacité d'achat d'une monnaie."),
+    Definition(name: "Taux de chômage", content: "Le pourcentage de la population active sans emploi et à la recherche d'un emploi."),
+    Definition(name: "Externalité environnementale", content: "Les effets positifs ou négatifs involontaires d'une activité économique sur l'environnement."),
+    Definition(name: "Effet de levier financier", content: "L'utilisation de la dette pour augmenter les rendements attendus d'un investissement."),
+    Definition(name: "Commerce international", content: "L'échange de biens et de services entre pays."),
+    Definition(name: "Investissement direct étranger (IDE)", content: "L'investissement dans une entreprise ou un projet dans un pays étranger."),
+    Definition(name: "Cycle économique", content: "Les fluctuations périodiques de l'activité économique, comprenant des périodes d'expansion et de récession."),
+    Definition(name: "Déréglementation", content: "La réduction ou l'élimination des règles et des restrictions gouvernementales sur les activités économiques."),
+    Definition(name: "Économie informelle", content: "Les activités économiques qui ne sont pas réglementées par le gouvernement ou qui ne sont pas incluses dans le PIB officiel."),
+    Definition(name: "Commerce équitable", content: "Un mouvement visant à garantir des conditions commerciales équitables pour les producteurs des pays en développement."),
+    Definition(name: "Infrastructure", content: "Les installations et les structures nécessaires au fonctionnement efficace d'une économie, telles que les routes, les ponts et les réseaux de communication."),
+    Definition(name: "Indice des prix à la consommation (IPC)", content: "Une mesure de l'évolution des prix des biens et services achetés par les consommateurs."),
+    Definition(name: "Pénurie", content: "Une situation où la demande d'un bien ou d'un service dépasse l'offre disponible."),
+    Definition(name: "Revenu disponible", content: "Le revenu total d'un ménage après paiement des impôts et des transferts gouvernementaux."),
+    Definition(name: "Crédit bancaire", content: "Les prêts accordés par les banques aux consommateurs et aux entreprises."),
+    Definition(name: "Fonction de production", content: "La relation entre les inputs utilisés dans la production et la production résultante de biens et de services."),
+    Definition(name: "Cycle de vie économique", content: "Les différentes étapes par lesquelles passe une économie, notamment la croissance, la maturité et le déclin."),
+    Definition(name: "Dépenses d'investissement", content: "Les dépenses des entreprises pour l'achat de biens d'équipement et d'autres actifs productifs."),
+    Definition(name: "Système de marché libre", content: "Un système économique où les décisions de production, de prix et de distribution sont laissées au libre jeu de l'offre et de la demande."),
+    Definition(name: "Revenu national brut (RNB)", content: "La somme de la valeur ajoutée brute par l'économie résidente et du revenu net en provenance de l'étranger.")
+]
 // liste de toute les définitions trié par ordre alphabetique
 let sortedListAllDefinitions = generateListCategory(selectedCategory: .all).sorted{$0.name<$1.name}
 
@@ -97,12 +130,18 @@ let sortedListAllDefinitions = generateListCategory(selectedCategory: .all).sort
 let lexiques : [Lexique] = [
     Lexique(name: Category.supplyAndDemand.rawValue, definitions: listSupplyAndDemand),
     Lexique(name: Category.invest.rawValue, definitions: listInvest),
-    Lexique(name: Category.global.rawValue, definitions: listGlobal)
+    Lexique(name: Category.global.rawValue, definitions: listGlobal),
+    Lexique(name: Category.french.rawValue, definitions: listFrench)
 ]
 //liste des écrans pour la leçon en cours
 let currentLessonParagraphs : [Lesson] = [
     Lesson(name: "Les Politiques Gouvernementales et Leur Impact Économique" , category: .global, content :"Les politiques gouvernementales, qu'elles touchent les impôts, l'argent ou les règles, sont comme les chefs d'orchestre de l'économie. Les décisions sur les taxes influent sur notre capacité à dépenser, économiser et investir. Les choix en matière d'argent, comme les taux d'intérêt fixés par les banques centrales, affectent l'emprunt, l'investissement et l'inflation. Les règles édictées par les autorités politiques sont également importantes, car des réglementations strictes peuvent freiner l'innovation, tandis que des politiques plus cool peuvent stimuler la croissance économique. En résumé, ce que décide le gouvernement a un impact énorme sur l'économie, que ce soit pour la faire prospérer ou stagner.", difficulty: .youngInvestor, quizz: quizzs[0]),
     Lesson(name: "Commerce International et Relations Diplomatiques", category: .global, content: "Les relations entre pays et les accords commerciaux sont super importants pour lier l'économie et la politique. Les décisions politiques sur le commerce, comme les taxes et les obstacles commerciaux, influent directement sur le mouvement des choses entre les nations. Les accords entre deux pays ou plusieurs ont un impact sur la compétitivité des entreprises à l'échelle mondiale. Quand il y a des tensions politiques, ça peut se transformer en guerre commerciale et ça peut vraiment secouer l'économie mondiale. Donc, les choix politiques dans les relations internationales ont des effets économiques sérieux qui forment notre tableau économique global.", difficulty: .youngInvestor, quizz: quizzs[0]),
-Lesson(name: "Les Défis Économiques comme Catalyseurs Politiques ", category: .global, content: "Les problèmes économiques comme le chômage, l'inégalité et la pauvreté poussent les gouvernements à prendre des décisions importantes. Ils doivent agir pour maintenir la stabilité sociale et garantir le bien-être de la population. Les politiques sociales, la formation professionnelle et les réformes économiques sont des réponses directes à ces défis. En plus, quand il y a des crises économiques, ça peut secouer les structures politiques en place et entraîner des changements dans les priorités et orientations du gouvernement. En résumé, les hauts et bas économiques peuvent vraiment changer le visage politique d'un pays.", difficulty: .youngInvestor, quizz: quizzs[0]),
-Lesson(name: "Conclusion", category: .global, content: "En résumé, l'économie et la politique sont comme des partenaires inséparables. Les choix dans un domaine ont des effets profonds dans l'autre. C'est crucial de comprendre cette relation pour relever les défis d'aujourd'hui et créer des politiques qui boostent le bien-être économique et social. La collaboration entre économie et politique façonne le destin des nations, créant une toile complexe où chaque aspect contribue à la réalité de la société.", difficulty: .youngInvestor, quizz: quizzs[0])
+    Lesson(name: "Les Défis Économiques comme Catalyseurs Politiques ", category: .global, content: "Les problèmes économiques comme le chômage, l'inégalité et la pauvreté poussent les gouvernements à prendre des décisions importantes. Ils doivent agir pour maintenir la stabilité sociale et garantir le bien-être de la population. Les politiques sociales, la formation professionnelle et les réformes économiques sont des réponses directes à ces défis. En plus, quand il y a des crises économiques, ça peut secouer les structures politiques en place et entraîner des changements dans les priorités et orientations du gouvernement. En résumé, les hauts et bas économiques peuvent vraiment changer le visage politique d'un pays.", difficulty: .youngInvestor, quizz: quizzs[0]),
+    Lesson(name: "Conclusion", category: .global, content: "En résumé, l'économie et la politique sont comme des partenaires inséparables. Les choix dans un domaine ont des effets profonds dans l'autre. C'est crucial de comprendre cette relation pour relever les défis d'aujourd'hui et créer des politiques qui boostent le bien-être économique et social. La collaboration entre économie et politique façonne le destin des nations, créant une toile complexe où chaque aspect contribue à la réalité de la société.", difficulty: .youngInvestor, quizz: quizzs[0])
 ]
+//liste des cours à afficher
+let listLessonName : [String] = [
+    "Les politiques gouvernementales","Les Actions en Actions","Commerce International","Les Défis Économiques","La notion de richesse","les crises économique","La monnaie", "L'inflation et la déflation","Le PIB","La création monétaire", "L'obligation des obligation","Banque centrale",
+]
+

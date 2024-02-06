@@ -8,21 +8,6 @@
 import SwiftUI
 
 struct SocialLinksScreen: View {
-    @State private var showingModal = false
-
-    var body: some View {
-        VStack {
-            Button("Partager avec tes amis !") {
-                showingModal = true
-            }.buttonStyle(GrowingButton())
-            .sheet(isPresented: $showingModal) {
-                ModalView()
-            }
-        }
-    }
-}
-
-struct ModalView: View {
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -30,7 +15,7 @@ struct ModalView: View {
             Text("Partage ton score !")
             HStack{
                 Form{
-                    Link("Partager",destination : URL(string: "https://www.youtube.com/watch?v=gtfUrJjEUv4")!)
+                    Link("Partager",destination : URL(string: "https://www.google.com")!)
                     Image(systemName: "person.fill")
                     Image("SnapchatLogo")
                         .resizable()

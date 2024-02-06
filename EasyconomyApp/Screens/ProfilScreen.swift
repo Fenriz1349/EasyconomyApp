@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ProfilScreen: View {
+    @State private var showingModalSocial = false
+   
     var body: some View {
-        NavigationView{
+        NavigationStack{
         ZStack{
             Color("BackgroundColor")
                 .ignoresSafeArea()
@@ -28,7 +30,7 @@ struct ProfilScreen: View {
                     Spacer()
                 }.font(.system(size: 20))
                     .foregroundStyle(Color("FontColor"))
-                VStack(spacing: 60){
+                VStack(spacing: 30){
                     NavigationLink(destination: ExtListFavorites(), label:{
                         Text("Favori")
                         Image(systemName: "chevron.forward")
@@ -44,8 +46,19 @@ struct ProfilScreen: View {
                         Image(systemName: "chevron.forward")
                     })
                     .modifier(OverlayElementProfil())
+                    Button("Partager avec tes amis !") {
+                        showingModalSocial = true
+                    }
+                    .modifier(OverlayElementProfil())
+                    .buttonStyle(GrowingButton())
+                    .sheet(isPresented: $showingModalSocial) {
+                        SocialLinksScreen()
+                        }
                 }
             }
+            .toolbar {
+                ExtSettings()
+                }
             }
         }.padding()
     }

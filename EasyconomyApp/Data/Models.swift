@@ -21,9 +21,10 @@ enum Rank : String,CaseIterable,Identifiable{
 enum Category : String,CaseIterable,Identifiable{
     var id: String { UUID().uuidString }
     case invest = "Investissement"
-    case bank = "banque"
-    case global = "mondiale"
+    case bank = "Banque"
+    case global = "Mondiale"
     case supplyAndDemand = "Offre et demande"
+    case french = "France"
     case all = "Toutes"
 }
 //struct de l'adresse d'un utilisateur, pour pouvoir recuperer le pays ou la ville facilement
@@ -166,7 +167,7 @@ class Definition : Identifiable, ObservableObject {
 struct Lexique : Identifiable {
     let id = UUID()
     let name : String
-    let definitions : [Definition]?
+    let definitions : [Definition]
 }
 
 //struct d'un cours
@@ -189,7 +190,7 @@ struct Lesson : Identifiable {
 func selectedFavorites() ->[Definition]?{
     var listFavorites : [Definition] = []
     for lexique in lexiques {
-        for definition in lexique.definitions! {
+        for definition in lexique.definitions {
             definition.favorite ? listFavorites.append(definition) : nil
         }
     }
@@ -202,7 +203,8 @@ func generateListCategory(selectedCategory : Category) ->[Definition]{
     case .invest : return listInvest
     case .global : return listGlobal
     case .supplyAndDemand : return listSupplyAndDemand
-    case .all : return listGlobal+listInvest+listSupplyAndDemand
+    case .french : return listFrench
+    case .all : return listGlobal+listInvest+listSupplyAndDemand+listFrench
     default : return []
     }
 }
@@ -235,13 +237,13 @@ struct OverlayElement: ViewModifier {
 struct OverlayElementProfil: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .frame(width:250,height: 20)
+            .frame(width:250,height: 18)
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: 25)
                     .stroke(Color("TitleColor"), lineWidth: 4))
             .foregroundStyle(.black)
-            .font(.system(size: 25))
+            .font(.system(size: 20))
             .background(Color("YellowCustom"))
             .cornerRadius(25)
             
@@ -260,7 +262,7 @@ struct BckElementLeaderboard: ViewModifier {
     func body(content: Content) -> some View {
         content
             .background(Color("ElementBckColor"))
-//            .clipShape(RoundedRectangle(cornerRadius: 10))
+           .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
 
@@ -268,6 +270,6 @@ struct BckElementLeaderboard: ViewModifier {
 struct SocialLogoSize: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .frame(width: 30, height: 30)
+            .frame(width: 40, height: 40)
     }
 }

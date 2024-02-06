@@ -11,6 +11,7 @@
 		5B10400F2B6BF51F006BC278 /* CurrentLessonScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B10400E2B6BF51F006BC278 /* CurrentLessonScreen.swift */; };
 		5B1040112B6C2F3F006BC278 /* testWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1040102B6C2F3F006BC278 /* testWheel.swift */; };
 		5B1040152B70EBDA006BC278 /* ExtractedViewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1040142B70EBD9006BC278 /* ExtractedViewList.swift */; };
+		5B1040172B72868F006BC278 /* ConnexionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1040162B72868F006BC278 /* ConnexionScreen.swift */; };
 		5BF6A2E32B690BA90096A530 /* EasyconomyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6A2E22B690BA90096A530 /* EasyconomyAppApp.swift */; };
 		5BF6A2E52B690BA90096A530 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF6A2E42B690BA90096A530 /* ContentView.swift */; };
 		5BF6A2E72B690BAB0096A530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF6A2E62B690BAB0096A530 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		5B10400E2B6BF51F006BC278 /* CurrentLessonScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLessonScreen.swift; sourceTree = "<group>"; };
 		5B1040102B6C2F3F006BC278 /* testWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testWheel.swift; sourceTree = "<group>"; };
 		5B1040142B70EBD9006BC278 /* ExtractedViewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtractedViewList.swift; sourceTree = "<group>"; };
+		5B1040162B72868F006BC278 /* ConnexionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnexionScreen.swift; sourceTree = "<group>"; };
 		5BF6A2DF2B690BA90096A530 /* EasyconomyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyconomyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF6A2E22B690BA90096A530 /* EasyconomyAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyconomyAppApp.swift; sourceTree = "<group>"; };
 		5BF6A2E42B690BA90096A530 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				5B10400E2B6BF51F006BC278 /* CurrentLessonScreen.swift */,
 				5BF6A3152B6936590096A530 /* QuizzScreen.swift */,
 				5B10400C2B6B8A9E006BC278 /* QuizzResultScreen.swift */,
+				5B1040162B72868F006BC278 /* ConnexionScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				5BF6A3082B6933AD0096A530 /* SettingsScreen.swift in Sources */,
 				5B10400F2B6BF51F006BC278 /* CurrentLessonScreen.swift in Sources */,
 				5BF6A3102B6935110096A530 /* DefinitionScreen.swift in Sources */,
+				5B1040172B72868F006BC278 /* ConnexionScreen.swift in Sources */,
 				5BF6A3122B69357B0096A530 /* LessonScreen.swift in Sources */,
 				5BF6A2F22B690BE90096A530 /* Models.swift in Sources */,
 				5BF6A2E52B690BA90096A530 /* ContentView.swift in Sources */,
