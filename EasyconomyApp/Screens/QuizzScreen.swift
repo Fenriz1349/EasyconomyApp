@@ -30,30 +30,34 @@ struct QuizzScreen: View {
 //formulaire avec la liste des questions
                 Form{
                     ExtQuestion(question: quizzs[0].questions[currentQuestion], QReturn: $questionReturn[currentQuestion])
-                    Button(){
-                        if questionReturn[currentQuestion] == quizzs[0].questions[currentQuestion].validProposition {
-                            nbGoodAnswers+=1
-                            nbPointEarned+=quizzs[0].questions[currentQuestion].points
-                        }
-                        currentQuestion<5 ? currentQuestion+=1 : nil
-                        if  currentQuestion == 4 {
-                            showingModalQuizz.toggle()
-                        }
-                        } 
-                    label:{HStack{
-                        Text(currentQuestion<3 ? "Suivant" : "Valider")
-                        Image(systemName: currentQuestion<3 ? "chevron.forward" : "")} }
-                    .buttonStyle(GrowingButton())
-                    .sheet(isPresented: $showingModalQuizz) {
-                        QuizzResultScreen(nbGoodAnswers :$nbGoodAnswers, nbPointEarned: $nbPointEarned,currentQuestion : $currentQuestion)
-                        }
+                        .padding(5)
+                        .modifier(BckElement())
+                    HStack{
+                        Spacer()
+                        Button(){
+                            if questionReturn[currentQuestion] == quizzs[0].questions[currentQuestion].validProposition {
+                                nbGoodAnswers+=1
+                                nbPointEarned+=quizzs[0].questions[currentQuestion].points
+                            }
+                            currentQuestion<5 ? currentQuestion+=1 : nil
+                            if  currentQuestion == 4 {
+                                showingModalQuizz.toggle()
+                            }
+                            }
+                        label:{HStack{
+                            Text(currentQuestion<3 ? "Suivant   " : "Valider")
+                            Image(systemName: currentQuestion<3 ? "chevron.forward" : "")} }
+                        .buttonStyle(GrowingButton())
+                        .sheet(isPresented: $showingModalQuizz) {
+                            QuizzResultScreen(nbGoodAnswers :$nbGoodAnswers, nbPointEarned: $nbPointEarned,currentQuestion : $currentQuestion)
+                            }
+                    }
                     }
                 Text("bonne reponses : \(nbGoodAnswers) / \(currentQuestion)")
                 Text("vous avez marqué \(nbPointEarned)")
                 }
-            .background(Color("ElementBckColor"))
-            .cornerRadius(30)
         }.padding()
+            .modifier(BckElement())
             .font(.system(size: 25))
         .foregroundStyle(Color("FontColor"))
     }

@@ -212,7 +212,7 @@ struct GrowingButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .padding()
-            .background(Color("ButtonBckColor"))
+            .background(Color("YellowCustom"))
             .foregroundStyle(Color("BckgroundColor"))
             .clipShape(Capsule())
             .scaleEffect(configuration.isPressed ? 1.5 : 1)
@@ -227,5 +227,47 @@ struct OverlayElement: ViewModifier {
             .overlay(
                 RoundedRectangle(cornerRadius: 25)
                     .stroke(Color("TitleColor"), lineWidth: 2))
+            .foregroundStyle(.black)
+            
+    }
+}
+//struct pour ajouter un modifier qui rajoute un overlay gris autour d'un element et ajouter un fond jaune pour l'écran profil
+struct OverlayElementProfil: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .frame(width:250,height: 20)
+            .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 25)
+                    .stroke(Color("TitleColor"), lineWidth: 4))
+            .foregroundStyle(.black)
+            .font(.system(size: 25))
+            .background(Color("YellowCustom"))
+            .cornerRadius(25)
+            
+    }
+}
+//struc pour ajouter un fond gris rectangulaire avec des bords arrondis
+struct BckElement: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .background(Color("ElementBckColor"))
+            .clipShape(RoundedRectangle(cornerRadius: 30))
+    }
+}
+//struc pour ajouter un fond gris rectangulaire pour le leaderboard
+struct BckElementLeaderboard: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .background(Color("ElementBckColor"))
+//            .clipShape(RoundedRectangle(cornerRadius: 10))
+    }
+}
+
+//struc pour ajouter un fond gris rectangulaire avec des bords arrondis
+struct SocialLogoSize: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .frame(width: 30, height: 30)
     }
 }

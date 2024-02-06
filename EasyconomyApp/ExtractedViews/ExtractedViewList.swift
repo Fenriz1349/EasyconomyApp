@@ -56,8 +56,12 @@ struct ExtLesson : View {
 //extractView d'une cellule du leaderboard
 struct ExtChallenger : View {
     let currentChallenger : Challenger
+    var index : Int
     var body: some View {
         HStack{
+            Text(String( index+1))
+                .font(.system(size: 35))
+                .bold()
             Image(currentChallenger.avatar)
                 .resizable()
                 .frame(width: 70, height: 70)
@@ -65,16 +69,21 @@ struct ExtChallenger : View {
                 .overlay(
                     RoundedRectangle(cornerRadius: 30)
                         .stroke(Color("YellowCustom"), lineWidth: 3))
-            VStack(alignment : .leading){
-                Text("\(currentChallenger.pseudo) ")
-                    .bold()
-                Text("\(currentChallenger.score) points \(currentChallenger.rank.rawValue)")
-            }
-            Spacer()
+            HStack{
+                VStack(alignment : .leading){
+                    HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
+                        Text("\(currentChallenger.pseudo) ")
+                            .bold()
+                    })
+                    Text("\(currentChallenger.score) points \(currentChallenger.rank.rawValue)")
+                }
+                Spacer()
+            }.modifier(BckElement())
+            
         }.frame(maxWidth: .infinity)
         .padding(5)
             .overlay(
-                RoundedRectangle(cornerRadius: 25)
+                RoundedRectangle(cornerRadius: 30)
                     .stroke(Color("TitleColor"), lineWidth: 2))
     }
 }
@@ -119,7 +128,7 @@ struct ExtListCategory : View {
                                     Spacer()
                                 }
                             })
-                        
+                        .modifier(BckElement())
                     }
                 }
         }
@@ -141,6 +150,7 @@ struct ExtListFavorites : View {
                         Spacer()
                     }
                 })
+                .modifier(BckElement())
             }
         }
     }
@@ -160,6 +170,7 @@ struct ExtListAlphabeticOrder : View {
                         Spacer()
                     }
                 })
+                .modifier(BckElement())
             }
         }
     }

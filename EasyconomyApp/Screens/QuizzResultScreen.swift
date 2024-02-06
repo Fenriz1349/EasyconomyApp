@@ -14,7 +14,7 @@ struct QuizzResultScreen: View {
     @Binding var currentQuestion : Int
     var body: some View {
         VStack {
-            Text(nbGoodAnswers == 0 ? "t'es mauvais Jack !" : "Vous avez \(nbGoodAnswers)/\(questionsQuizz1.count) bonnes reponses !")
+            Text(nbGoodAnswers == 0 ? "T'es mauvais Jack !" : "Vous avez \(nbGoodAnswers)/\(questionsQuizz1.count) bonnes reponses !")
                 .padding(5)
                 .bold()
             if quizzs[0].isCompleted{
@@ -39,11 +39,10 @@ struct QuizzResultScreen: View {
             } }
             .buttonStyle(GrowingButton())
         }.padding(50)
+            .foregroundStyle(Color("FontColor"))
         .font(.system(size: 30))
-        .background(Color("ElementBckColor"))
-        .clipShape(RoundedRectangle(cornerRadius: 30))
+        .modifier(BckElement())
         .modifier(OverlayElement())
-            
     }
 }
 

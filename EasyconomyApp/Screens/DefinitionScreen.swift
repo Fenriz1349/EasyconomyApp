@@ -22,9 +22,12 @@ struct DefinitionScreen: View {
                     label:{
                         Image(systemName: selectedDefinition.favorite ? "star.fill" : "star") }
                     }
-                    .font(.title)
+                .font(.system(size: 40))
                     .foregroundStyle(Color("TitleColor"))
                 Text(selectedDefinition.content)
+                    .frame()
+                    .font(.system(size: 30))
+                    .background(Color("ElementBckColor"))
             }
         }.padding()
         .foregroundStyle(Color("FontColor"))

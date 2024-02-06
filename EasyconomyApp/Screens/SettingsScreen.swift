@@ -17,20 +17,17 @@ var settings = [
     Setting(nom: "Sécurité"),
     Setting(nom: "Connexion"),
     Setting(nom: "QR Code")
-    ]
+]
 
 var settings2 = [
     Setting(nom: "Abonnement"),
     Setting(nom: "Cadeau"),
     Setting(nom: "Annulation")
-
 ]
 
 struct SettingsScreen: View {
-
     var body: some View {
         VStack{
-
             Text("Settings")
             Spacer()
             HStack{
@@ -44,18 +41,19 @@ struct SettingsScreen: View {
                 HStack{
                     Text(element.nom)
                     Spacer()
-                    Image(systemName: "greaterthan")
+                    Image(systemName: "chevron.forward")
                 }}
             Text("Paramètre abonnement")
-                       List(settings2) { element in
-                           HStack{
-                               Text(element.nom)
-                               Spacer()
-                               Image(systemName: "greaterthan")
-                           }
-                       }
+            List(settings2) { element in
+                HStack{
+                    Text(element.nom)
+                    Spacer()
+                    Image(systemName: "chevron.forward")
+                }
             }
-        }}
+        }
+    }
+}
 #Preview {
     SettingsScreen()
 }

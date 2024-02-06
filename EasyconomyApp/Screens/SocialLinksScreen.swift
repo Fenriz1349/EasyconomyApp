@@ -8,21 +8,54 @@
 import SwiftUI
 
 struct SocialLinksScreen: View {
+    @State private var showingModal = false
+
     var body: some View {
-        ZStack{
-            Color("BackgroundColor")
-                .ignoresSafeArea()
-            VStack{
-                Text("Social")
-                    .font(.title)
-                    .foregroundStyle(Color("TitleColor"))
-                Text("lien pour poster sur les reseaux")
+        VStack {
+            Button("Partager avec tes amis !") {
+                showingModal = true
+            }.buttonStyle(GrowingButton())
+            .sheet(isPresented: $showingModal) {
+                ModalView()
             }
-        }.padding()
-        .foregroundStyle(Color("FontColor"))
-        
+        }
     }
 }
+
+struct ModalView: View {
+    @Environment(\.presentationMode) var presentationMode
+
+    var body: some View {
+        VStack {
+            Text("Partage ton score !")
+            HStack{
+                Form{
+                    Link("Partager",destination : URL(string: "https://www.youtube.com/watch?v=gtfUrJjEUv4")!)
+                    Image(systemName: "person.fill")
+                    Image("SnapchatLogo")
+                        .resizable()
+                        .modifier(SocialLogoSize())
+                    Image("InstagramLogo")
+                        .resizable()
+                        .modifier(SocialLogoSize())
+                    Image("DiscordLogo")
+                        .resizable()
+                        .modifier(SocialLogoSize())
+                    Image("FacebookLogo")
+                        .resizable()
+                        .modifier(SocialLogoSize())
+                    Image("WhatsappLogo")
+                        .resizable()
+                        .modifier(SocialLogoSize())
+                }}
+            Button("Fermer") {
+                presentationMode.wrappedValue.dismiss()
+            }
+        }
+    }
+}
+
+
 
 #Preview {
     SocialLinksScreen()

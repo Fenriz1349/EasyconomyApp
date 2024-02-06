@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LeaderboardScreen: View {
     @State private var selectedFriend = false
-    @State var compteur = 0
     var body: some View {
         ZStack{
             Color("BackgroundColor")
@@ -23,8 +22,8 @@ struct LeaderboardScreen: View {
                 } .pickerStyle(.segmented)
                     .padding(.bottom, 30)
                 ScrollView{
-                    ForEach(challengers.filter{$0.friend == selectedFriend}) {element in
-                        ExtChallenger(currentChallenger: element)
+                    ForEach(challengers.filter{$0.friend == selectedFriend}.indices, id:\.self) {indice in
+                        ExtChallenger(currentChallenger: challengers.filter{$0.friend == selectedFriend}[indice],index: indice)
                     }
                 }
             }

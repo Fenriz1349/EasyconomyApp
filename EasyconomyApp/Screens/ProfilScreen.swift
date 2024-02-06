@@ -27,21 +27,27 @@ struct ProfilScreen: View {
                         .cornerRadius(30)
                     Spacer()
                 }.font(.system(size: 20))
+                    .foregroundStyle(Color("FontColor"))
                 VStack(spacing: 60){
-                    NavigationLink(destination: ExtListFavorites(), label:{Text("Favori")})
-                        .frame(width:200,height: 20)
-                        .modifier(OverlayElement())
-                    NavigationLink(destination: CurrentLesson(), label:{Text("Reprendre le cours")})
-                        .frame(width:200,height: 20)
-                        .modifier(OverlayElement())
-                    NavigationLink(destination: QuizzScreen(), label: {Text("Reprendre le quizz")})
-                        .frame(width:200,height: 20)
-                        .modifier(OverlayElement())
+                    NavigationLink(destination: ExtListFavorites(), label:{
+                        Text("Favori")
+                        Image(systemName: "chevron.forward")
+                    })
+                .modifier(OverlayElementProfil())
+                    NavigationLink(destination: CurrentLesson(), label:{
+                        Text("Reprendre le cours")
+                        Image(systemName: "chevron.forward")
+                    })
+                .modifier(OverlayElementProfil())
+                    NavigationLink(destination: QuizzScreen(), label: {
+                        Text("Reprendre le quizz")
+                        Image(systemName: "chevron.forward")
+                    })
+                    .modifier(OverlayElementProfil())
                 }
             }
             }
         }.padding()
-            .foregroundStyle(Color("FontColor"))
     }
 }
 
