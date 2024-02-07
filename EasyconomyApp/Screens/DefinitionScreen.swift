@@ -17,6 +17,7 @@ struct DefinitionScreen: View {
                 VStack{
                     HStack{
                         Text(selectedDefinition.name)
+                            .modifier(TitleFontStyle())
                         Spacer()
                         Button {
                             selectedDefinition.favorite.toggle()}

@@ -15,8 +15,7 @@ struct QuizzResultScreen: View {
     var body: some View {
         VStack {
             Text(nbGoodAnswers == 0 ? "T'es mauvais Jack !" : "Vous avez \(nbGoodAnswers)/\(questionsQuizz1.count) bonnes reponses !")
-                .padding(5)
-                .bold()
+                .modifier(TitleFontStyle())
             if quizzs[0].isCompleted{
                 Text("Quizz deja Completé, vous ne gagnez pas de points")
             }else{

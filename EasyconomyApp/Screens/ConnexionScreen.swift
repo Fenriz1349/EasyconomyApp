@@ -20,10 +20,11 @@ struct ConnexionScreen: View {
                 Color("BackgroundColor")
                     .ignoresSafeArea()
                 VStack{
+                    Image("Loading")
+                        .cornerRadius(10)
+                        .modifier(OverlayElement())
                     Text("Login")
-                        .font(.largeTitle)
-                        .bold()
-                        .padding()
+                        .modifier(TitleFontStyle())
                     TextField("Username", text: $username)
                         .padding()
                         .frame(width: 300, height: 50)
@@ -49,7 +50,6 @@ struct ConnexionScreen: View {
                         .foregroundStyle(Color("BckgroundColor"))
                         .cornerRadius(10)
                 }
-
             }
             .navigationBarHidden(true)
         }    }

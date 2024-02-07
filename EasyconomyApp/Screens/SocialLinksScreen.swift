@@ -13,28 +13,39 @@ struct SocialLinksScreen: View {
     var body: some View {
         VStack {
             Text("Partage ton score !")
+                .modifier(TitleFontStyle())
             HStack{
                 Form{
-                    Link("Partager",destination : URL(string: "https://www.google.com")!)
-                    Image(systemName: "person.fill")
-                    Image("SnapchatLogo")
-                        .resizable()
-                        .modifier(SocialLogoSize())
-                    Image("InstagramLogo")
-                        .resizable()
-                        .modifier(SocialLogoSize())
-                    Image("DiscordLogo")
-                        .resizable()
-                        .modifier(SocialLogoSize())
-                    Image("FacebookLogo")
-                        .resizable()
-                        .modifier(SocialLogoSize())
-                    Image("WhatsappLogo")
-                        .resizable()
-                        .modifier(SocialLogoSize())
-                }}
-            Button("Fermer") {
-                presentationMode.wrappedValue.dismiss()
+                    HStack{
+                        Image("TwitterLogo")
+                            .resizable()
+                            .modifier(SocialLogoSize())
+                        Link("Partager avec tes amis !",destination : URL(string: "https://twitter.com/Julie7047293366/status/1755214464629035079")!)
+                    }
+
+                    HStack{
+                        Image("SnapchatLogo")
+                            .resizable()
+                            .modifier(SocialLogoSize())
+                        Button("Partager avec tes amis !"){}}
+                    HStack{
+                        Image("InstagramLogo")
+                            .resizable()
+                            .modifier(SocialLogoSize())
+                        Button("Partager avec tes amis ! "){}}
+                    HStack{
+                        Image("DiscordLogo")
+                            .resizable()
+                            .modifier(SocialLogoSize())
+                        Button("Partager avec tes amis !"){}}
+                    HStack{
+                        Image("FacebookLogo")
+                            .resizable()
+                            .modifier(SocialLogoSize())
+                        Button("Partager avec tes amis !"){}}
+                    }}
+                Button("Fermer") {
+                    presentationMode.wrappedValue.dismiss()
             }
         }
     }

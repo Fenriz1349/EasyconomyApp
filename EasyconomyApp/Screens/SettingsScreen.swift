@@ -21,34 +21,61 @@ var settings = [
 
 var settings2 = [
     Setting(nom: "Abonnement"),
-    Setting(nom: "Cadeau"),
+    Setting(nom: "Preview Fond"),
+    Setting(nom: "Preview Avatar"),
     Setting(nom: "Annulation")
 ]
 
 struct SettingsScreen: View {
     var body: some View {
-        VStack{
-            Text("Settings")
-            Spacer()
-            HStack{
-                Image(systemName: "magnifyingglass")
-                Button("Search"){}}
-            Spacer()
-            Spacer()
-            Text("Paramètre du compte")
-            List(settings) {
-                element in
-                HStack{
-                    Text(element.nom)
-                    Spacer()
-                    Image(systemName: "chevron.forward")
-                }}
-            Text("Paramètre abonnement")
-            List(settings2) { element in
-                HStack{
-                    Text(element.nom)
-                    Spacer()
-                    Image(systemName: "chevron.forward")
+        NavigationStack{
+            VStack{
+                Text("Settings")
+                    .modifier(TitleFontStyle())
+                Spacer()
+                Text("Paramètre du compte")
+                List(settings) {
+                    element in
+                    HStack{
+                        Text(element.nom)
+                        Spacer()
+                        Image(systemName: "chevron.forward")
+                    }}
+                Text("Paramètre abonnement")
+                List(settings2) { element2 in
+                    switch element2.nom {
+                    case "Preview Fond" :  
+                        ZStack {
+                            NavigationLink{
+                                ExtGalleryBck()
+                            } label: {
+                                EmptyView()
+                            }.opacity(0)
+                            HStack{
+                                Text(element2.nom)
+                                Spacer()
+                                Image(systemName: "chevron.forward")
+                                }
+                            }
+                    case "Preview Avatar" :
+                        ZStack {
+                            NavigationLink{
+                                ExtGalleryAvatar()
+                            } label: {
+                                EmptyView()
+                            }.opacity(0)
+                            HStack{
+                                Text(element2.nom)
+                                Spacer()
+                                Image(systemName: "chevron.forward")
+                            }
+                        }
+                    default :HStack{
+                        Text(element2.nom)
+                        Spacer()
+                        Image(systemName: "chevron.forward")
+                    }
+                    }
                 }
             }
         }

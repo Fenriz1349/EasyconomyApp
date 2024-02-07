@@ -16,9 +16,7 @@ struct LeaderboardScreen: View {
                     .ignoresSafeArea()
                 VStack{
                     Text("Leaderbord")
-                        .font(.system(size: 35))
-                        .bold()
-                        .padding(.bottom, 30)
+                        .modifier(TitleFontStyle())
                     Picker("friend", selection: $selectedFriend) {
                         Text("Monde").tag(false)
                         Text("Amis").tag(true)

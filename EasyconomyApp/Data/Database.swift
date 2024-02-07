@@ -12,7 +12,7 @@ var adresses : [Adress] = [
 ]
 //variable qui contient les données de l'utilisateur
 var user : User =
-User(pseudo: "Fen", avatar : "Guts",score: 666, rank:.student, adress: adresses[0], mail: "test@gmail.fr", password: "1234")
+User(pseudo: "Seng", avatar : "Guts",score: 666, rank:.student, adress: adresses[0], login: "SengxAyoub", password: "1234")
 
 //liste de toutes questions
 var questionsQuizz1 : [Question] = [
@@ -144,4 +144,16 @@ let currentLessonParagraphs : [Lesson] = [
 let listLessonName : [String] = [
     "Les politiques gouvernementales","Les Actions en Actions","Commerce International","Les Défis Économiques","La notion de richesse","les crises économique","La monnaie", "L'inflation et la déflation","Le PIB","La création monétaire", "L'obligation des obligation","Banque centrale",
 ]
+//liste des photos de fond
+let listBckImage : [String] = [
+    "fond1","fond2","fond3","fond4","fond5","fond6"
+]
 
+//liste des photos de profil garçon
+let listBoyImage : [String] = [
+    "boy1","boy2","boy3","boy4","boy5","boy6"
+]
+//liste des photos de profil garçon
+let listGirlImage : [String] = [
+    "girl1","girl2","girl3","girl4","girl5","girl6"
+]

@@ -29,9 +29,7 @@ struct LexiqueScreen: View {
             NavigationStack{
                 VStack{
                     Text("Lexique")
-                        .font(.title)
-                        .foregroundStyle(Color("YellowCustom"))
-                        .padding(.bottom, 30)
+                        .modifier(TitleFontStyle())
                     Picker("friend", selection: $lexiqueType) {
                         Text("catégories").tag(1)
                         Text("A..Z").tag(2)

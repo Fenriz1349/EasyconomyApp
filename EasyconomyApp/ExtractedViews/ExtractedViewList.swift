@@ -13,12 +13,14 @@ struct ExtQuestion : View {
     let question : Question
     @Binding var QReturn :Int
     var body: some View {
-        Picker("\(question.number)/5 : \(question.topic)", selection: $QReturn){
+        Text("\(question.number)/5 : \(question.topic)")
+        Picker("", selection: $QReturn){
             Text(question.proposition1).tag(1)
             Text(question.proposition2).tag(2)
             Text(question.proposition3).tag(3)
             Text(question.proposition4).tag(4)
         }.pickerStyle(.inline)
+            .labelsHidden()
             .background(Color("ElementBckColor"))
             .padding(5)
             .font(.system(size: 20))
@@ -38,10 +40,7 @@ struct ExtLesson : View {
             .font(.system(size: 20))
             .padding(20)
             Text(lessonParagraphe.name)
-                .bold()
-                .font(.system(size: 30))
-                .padding(20)
-                .foregroundStyle(Color("YellowCustom"))
+                .modifier(TitleFontStyle())
             ScrollView{
                 Text(lessonParagraphe.content)
                     .padding(15)
@@ -60,7 +59,7 @@ struct ExtChallenger : View {
     var body: some View {
         HStack{
             Text(String( index+1))
-                .font(.system(size: 35))
+                .font(.system(size: 30))
                 .bold()
             Image(currentChallenger.avatar)
                 .resizable()
@@ -88,29 +87,6 @@ struct ExtChallenger : View {
     }
 }
 
-struct ExtChallengerHorizontal : View {
-    let currentChallenger : Challenger
-    
-    var body: some View {
-        VStack{
-            Image(currentChallenger.avatar)
-                .resizable()
-                .frame(width: 70, height: 70)
-                .cornerRadius(30)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 30)
-                        .stroke(Color("YellowCustom"), lineWidth: 3))
-                Text("\(currentChallenger.pseudo) ")
-                    .bold()
-                Text("\(currentChallenger.score) points ")
-                Text("\(currentChallenger.rank.rawValue)")
-        }.frame(maxWidth: .infinity)
-        .padding(5)
-            .overlay(
-                RoundedRectangle(cornerRadius: 25)
-                    .stroke(Color("TitleColor"), lineWidth: 2))
-    }
-}
 //extractview pour générer la liste des category si on selectionnne classement par catégorie dans l'écran de Lexique
 struct ExtListCategory : View {
     @State var showList : [Bool] = [false,false,false,false]
@@ -120,16 +96,14 @@ struct ExtListCategory : View {
                 VStack{
                     HStack{
                         Text(lexique.name.description)
-                            .font(.system(size: 30))
-                            .bold()
-                            .foregroundStyle(Color("YellowCustom"))
+                            .modifier(TitleFontStyle())
                             .onTapGesture {
                                 showList[indice].toggle()
                             }
                             .padding()
                         Spacer()
                     }.modifier(BckElement())
-                        .padding(.bottom, 30)
+                        .padding(.bottom, 25)
                    if showList[indice]{
                        ForEach(lexique.definitions) { definition in
                         NavigationLink(
@@ -233,4 +207,87 @@ struct ExtLessonNameAndProgress : View {
                 }
             }}).foregroundStyle(Color("BckgroundColor"))
         }
+}
+//extractview pour afficher les photos de profil et de fond dans la galery
+struct ExtGalleryBck : View {
+    @State var compteurGallery : Int = 0
+    private var rankName :String{
+        getRankNameByNumber(n :compteurGallery)
+    }
+    var body: some View {
+        VStack{
+            Text("rang \(rankName)")
+                .font(.system(size: 30))
+                .bold()
+                .foregroundStyle(Color("YellowCustom"))
+                .padding(.bottom,10)
+            HStack{
+                Button(action: {
+                    compteurGallery>0 ? compteurGallery-=1 : nil
+                }, label: {
+                    Image(systemName: "chevron.backward")
+                        .font(.system(size: 40))
+                        .foregroundStyle(Color("FontColor"))
+                })
+                Image(listBckImage[compteurGallery])
+                    .resizable()
+                    .frame(width: 500,height: 300)
+                    .scaledToFit()
+                Button(action: {
+                    compteurGallery<listBckImage.count-1 ? compteurGallery+=1 : nil
+                }, label: {
+                    Image(systemName: "chevron.forward")
+                        .font(.system(size: 40))
+                        .foregroundStyle(Color("FontColor"))
+                })
+            }
+        }
+        .rotationEffect(.degrees(-90))
+    }
+}
+
+//extractview pour afficher les photos de profil et de fond dans la galery
+struct ExtGalleryAvatar : View {
+    @State var isBoyOrGirl : Bool = true
+    @State var compteurAvatar : Int = 0
+    private var rankName :String{
+        getRankNameByNumber(n :compteurAvatar)
+    }
+    private var galery : [String] {
+        isBoyOrGirl ? listBoyImage : listGirlImage
+    }
+    var body: some View {
+        VStack{
+            Toggle(isBoyOrGirl ? "garçon" : "fille",
+                   isOn: $isBoyOrGirl)
+                .font(.system(size: 20))
+                .fixedSize()
+                .padding(.bottom,10)
+            Text(isBoyOrGirl ? "garçon rang \(rankName)" : "fille rang \(rankName)")
+                .font(.system(size: 30))
+                .bold()
+                .foregroundStyle(Color("YellowCustom"))
+                .padding(.bottom,10)
+            HStack{
+                Button(action: {
+                    compteurAvatar>0 ? compteurAvatar-=1 : nil
+                }, label: {
+                    Image(systemName: "chevron.backward")
+                        .font(.system(size: 40))
+                        .foregroundStyle(Color("FontColor"))
+                })
+                Image(galery[compteurAvatar])
+                    .resizable()
+                    .frame(width: 300,height: 500)
+                    .scaledToFit()
+                Button(action: {
+                    compteurAvatar<galery.count-1 ? compteurAvatar+=1 : nil
+                }, label: {
+                    Image(systemName: "chevron.forward")
+                        .font(.system(size: 40))
+                        .foregroundStyle(Color("FontColor"))
+                })
+            }
+        }
+    }
 }

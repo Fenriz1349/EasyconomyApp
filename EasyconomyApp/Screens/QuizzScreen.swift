@@ -22,10 +22,7 @@ struct QuizzScreen: View {
             NavigationStack{
                 VStack{
                     Text(quizzs[0].name)
-                        .bold()
-                        .font(.system(size: 30))
-                        .foregroundStyle(Color("YellowCustom"))
-                        .padding(.bottom,10)
+                        .modifier(TitleFontStyle())
                     Text("niveaux \(quizzs[0].difficulty.rawValue)")
                         .font(.system(size: 25))
     //formulaire avec la liste des questions

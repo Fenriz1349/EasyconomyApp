@@ -71,12 +71,12 @@ class Challenger : Identifiable, ObservableObject{
 // password : mot de passe de l'utilisateur
 
 class User : Challenger {
-    var mail : String
+    var login : String
     var password : String
     var friendsList : [String]
     
-    init(pseudo: String, avatar: String, score: Int, rank: Rank, friend: Bool = false, adress : Adress,mail: String, password: String, friendsList: [String] = []) {
-        self.mail = mail
+    init(pseudo: String, avatar: String, score: Int, rank: Rank, friend: Bool = false, adress : Adress,login: String, password: String, friendsList: [String] = []) {
+        self.login = login
         self.password = password
         self.friendsList = friendsList
         super.init(pseudo: pseudo, avatar: avatar, score: score, rank: rank, adress: adress)
@@ -271,5 +271,27 @@ struct SocialLogoSize: ViewModifier {
     func body(content: Content) -> some View {
         content
             .frame(width: 40, height: 40)
+    }
+}
+
+//struc pour uniformiser le style des titres
+struct TitleFontStyle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.system(size: 35))
+            .foregroundStyle(Color("YellowCustom"))
+            .bold()
+            .padding(.bottom,5)
+    }
+}
+//fonction pour renvoyer le nom du rank en fonction d'un index de 0 à 5
+func getRankNameByNumber (n :Int)-> String {
+    switch n {
+    case 1 : return Rank.youngInvestor.rawValue
+    case 2 : return Rank.investor.rawValue
+    case 3 : return Rank.owner.rawValue
+    case 4 : return Rank.CEO.rawValue
+    case 5 : return Rank.annuitant.rawValue
+    default : return Rank.student.rawValue
     }
 }

@@ -15,9 +15,7 @@ struct LessonScreen: View {
             NavigationStack{
                 VStack{
                     Text("Liste des cours")
-                        .font(.system(size: 35))
-                        .bold()
-                        .foregroundStyle(Color("YellowCustom"))
+                        .modifier(TitleFontStyle())
                     ForEach(listLessonName, id: \.self) { element in
                         ExtLessonNameAndProgress(lessonName: element)
                     }
