@@ -22,6 +22,7 @@ struct ProfilScreen: View {
                     Text("rang \(user.rank.rawValue)")
                     Text("Points : \(user.score)")
                     Text("\(user.adress.city), \(user.adress.country)")
+                        .padding(.bottom,20)
                     ZStack{
                         Image("fond1")
                             .resizable()
@@ -31,10 +32,10 @@ struct ProfilScreen: View {
                             .resizable()
                             .frame(width: 100, height: 150)
                     }
-                    Spacer()
+                    .padding(.bottom,20)
                 }.font(.system(size: 20))
                     .foregroundStyle(Color("FontColor"))
-                VStack(spacing: 30){
+                VStack(spacing: 20){
                     NavigationLink(destination: ExtListFavorites(), label:{
                         Text("Favori")
                         Image(systemName: "chevron.forward")

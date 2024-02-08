@@ -12,15 +12,15 @@ var adresses : [Adress] = [
 ]
 //variable qui contient les données de l'utilisateur
 var user : User =
-User(pseudo: "Seng", avatar : "Guts",score: 666, rank:.student, adress: adresses[0], login: "SengxAyoub", password: "1234")
+User(pseudo: "Julie", avatar : "Guts",score: 700, rank:.student, adress: adresses[0], login: "Julie", password: "1234")
 
 //liste de toutes questions
 var questionsQuizz1 : [Question] = [
-    Question(topic: "Qu'est ce qui peut influencer l'économie d'un pays ?", number: 1, points: 10, proposition1: "Ayoub",  proposition2: "les relations entre pays", proposition3: "rien peut le changer", proposition4: "l'écologie",validProposition: 2),
-    Question(topic: "quelles réponses fait part des problèmes économique ?",number: 2, points: 10, proposition1: "le chômage", proposition2: "Goku", proposition3: "les décisions du gouvernement", proposition4: "aucune des 3", validProposition: 1),
-    Question(topic: "Peut on séparer la politique de l'économie ?",number: 3, points: 10, proposition1: "non", proposition2: "oui mais c'est difficile", proposition3: "oui", proposition4: "Ryan peut le faire", validProposition: 1),
-    Question(topic: "laquel des ces fait est incorrecte  ?",number: 4, points: 10, proposition1: "le chômage est un problème économique", proposition2: "tout les décision du gouvernement influence l'économie d'un pays", proposition3: "l'économie et la politique peuvent être séparé", proposition4: "les taxes nous influencent", validProposition: 2),
-    Question(topic: "Quelle est la conséquence des tensions politiques entre pays ?",number: 5, points: 10, proposition1: "Elle n'a pas des conséquence", proposition2: "une conséquence écologique", proposition3: "Elle peut crée des guerre commerciale", proposition4: "je ne sais pas laisse moi tranquille", validProposition: 3)
+    Question(topic: "Est-ce que l'externalité environmentale est positive ou négative ?", number: 1, points: 50, proposition1: "oui",  proposition2: "non", proposition3: "oui et non", proposition4: "ça dépend du pays",validProposition: 3),
+    Question(topic: "Qu'est-ce qu'un dividende ?",number: 2, points: 60, proposition1: "une part d'entreprise", proposition2: "une partie du bénéfice", proposition3: "une aide sociale", proposition4: "aucune des 3", validProposition: 1),
+    Question(topic: "l'achat d'action est-il possible à tout le monde ?",number: 3, points: 70, proposition1: "oui, mais c'est compliqué", proposition2: "non", proposition3: "oui", proposition4: "si Ayoub l'autorise", validProposition: 3),
+    Question(topic: "Qu'est-ce qui influence le plus le prix ?",number: 4, points: 80, proposition1: "le gouvernement", proposition2: "les PDG des grosses entreprises", proposition3: "l'offre et la demande", proposition4: "les taxes", validProposition: 3),
+    Question(topic: "Quel est le meilleur moyen de devenir riche ?",number: 5, points: 90, proposition1: "avoir un gros salaire", proposition2: "ne jamais depenser d'argent", proposition3: "il faut forcement heriter", proposition4: "utiliser Easyconomy", validProposition: 4)
 ]
 //liste des Quizz
 var quizzs : [Quizz] = [
@@ -28,7 +28,7 @@ var quizzs : [Quizz] = [
 ]
 //liste des challenger pour simuler le Leaderboard
 var challengers : [Challenger] = [
-    Challenger(pseudo: "Guts", avatar :"Guts",score: 666_666, rank: .annuitant, adress: Adress(city: "Eclipse", country: "Midland")),
+    Challenger(pseudo: "Guts", avatar :"Guts",score: 9000, rank: .annuitant, adress: Adress(city: "Eclipse", country: "Midland")),
     Challenger(pseudo: "Casca", avatar :"Casca",score: 1000, rank: .investor, adress: Adress(city: "Eclipse", country: "Midland")),
     Challenger(pseudo: "Kenshiro", avatar :"Kenshiro",score: 900, rank: .CEO,adress: Adress(city: "Tokyo", country: "Japon")),
     Challenger(pseudo: "Batman", avatar :"Batman",score: 850, rank: .investor,adress: Adress(city: "Gotham City", country: "USA")),
@@ -142,7 +142,7 @@ let currentLessonParagraphs : [Lesson] = [
 ]
 //liste des cours à afficher
 let listLessonName : [String] = [
-    "Les politiques gouvernementales","Les Actions en Actions","Commerce International","Les Défis Économiques","La notion de richesse","les crises économique","La monnaie", "L'inflation et la déflation","Le PIB","La création monétaire", "L'obligation des obligation","Banque centrale",
+    "Politiques gouvernementales","Les Actions en Actions","Commerce International","Les Défis Économiques","La notion de richesse","les crises économique","La monnaie", "L'inflation et la déflation","Le PIB","La création monétaire", "L'obligation des obligation","Banque centrale",
 ]
 //liste des photos de fond
 let listBckImage : [String] = [

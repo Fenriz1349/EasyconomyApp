@@ -54,9 +54,9 @@ struct ConnexionScreen: View {
             .navigationBarHidden(true)
         }    }
     func autheticateUser(username: String, password: String) {
-        if username.lowercased() == "a" {
+        if username == user.login {
             wrongUsername = 0
-            if password.lowercased() == "a" {
+            if password == "1234" {
                 wrongPassword = 0
                 presentationMode.wrappedValue.dismiss()
             } else {

@@ -22,28 +22,34 @@ struct SocialLinksScreen: View {
                             .modifier(SocialLogoSize())
                         Link("Partager avec tes amis !",destination : URL(string: "https://twitter.com/Julie7047293366/status/1755214464629035079")!)
                     }
-
                     HStack{
                         Image("SnapchatLogo")
                             .resizable()
                             .modifier(SocialLogoSize())
-                        Button("Partager avec tes amis !"){}}
+                        Button("Partager avec tes amis !"){}
+                    }
                     HStack{
                         Image("InstagramLogo")
                             .resizable()
                             .modifier(SocialLogoSize())
-                        Button("Partager avec tes amis ! "){}}
+                        Button("Partager avec tes amis ! "){}
+                    }
                     HStack{
                         Image("DiscordLogo")
                             .resizable()
                             .modifier(SocialLogoSize())
-                        Button("Partager avec tes amis !"){}}
+                        Button("Partager avec tes amis !"){}
+                    }
                     HStack{
                         Image("FacebookLogo")
                             .resizable()
                             .modifier(SocialLogoSize())
-                        Button("Partager avec tes amis !"){}}
-                    }}
+                        Button("Partager avec tes amis !"){}
+                    }
+                }
+            }
+            .font(.system(size: 25))
+            
                 Button("Fermer") {
                     presentationMode.wrappedValue.dismiss()
             }

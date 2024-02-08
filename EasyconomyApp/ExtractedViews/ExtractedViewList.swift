@@ -192,7 +192,7 @@ struct ExtLessonNameAndProgress : View {
                        label:{
             ZStack{
                 RoundedRectangle(cornerRadius: 15)
-                    .fill(.red)
+                    .fill(Color("YellowCustom"))
                     .frame(width: 300,height: isCurrentLesson ? 60 : 30)
                 HStack{
                     RoundedRectangle(cornerRadius: 15)

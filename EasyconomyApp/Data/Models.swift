@@ -278,7 +278,7 @@ struct SocialLogoSize: ViewModifier {
 struct TitleFontStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(.system(size: 35))
+            .font(.system(size: 32))
             .foregroundStyle(Color("YellowCustom"))
             .bold()
             .padding(.bottom,5)
