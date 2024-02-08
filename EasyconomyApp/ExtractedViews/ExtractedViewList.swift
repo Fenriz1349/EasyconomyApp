@@ -242,7 +242,6 @@ struct ExtGalleryBck : View {
                 })
             }
         }
-        .rotationEffect(.degrees(-90))
     }
 }
 
